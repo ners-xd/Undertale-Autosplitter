@@ -30,4 +30,5 @@ Not tested at all but should work.
 + In the "advanced" window select the needed paths (don't forget to add them to timer).
 
 ## Submit bugs
-You can do it [here](https://github.com/antimYT/Undertale-Autosplitter/issues?q=).
+You can do it [here](https://github.com/antimYT/Undertale-Autosplitter/issues?q=). Attach your logs if you can.
+Log files: *livesplit directory*/uaslog/

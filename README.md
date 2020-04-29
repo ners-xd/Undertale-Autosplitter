@@ -31,4 +31,5 @@ Not tested at all but should work.
 
 ## Submit bugs
 You can do it [here](https://github.com/antimYT/Undertale-Autosplitter/issues?q=). Attach your logs if you can.
-Log files: *livesplit directory*/uaslog/
+
+You can find your Log files here: `*livesplit directory*/uaslog/`

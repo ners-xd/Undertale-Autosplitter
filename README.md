@@ -1,4 +1,4 @@
-# Undertale Autosplitter (for 1.05/1.08)
+# Undertale Autosplitter (for 1.01/1.05/1.08)
 ## Download
 
 ### v1.01

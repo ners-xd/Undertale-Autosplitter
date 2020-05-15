@@ -1,25 +1,9 @@
-# Undertale Autosplitter (for 1.01/1.05/1.08)
+# Undertale Autosplitter (for 1.001/1.05/1.08)
 ## Download
+###### (script v6 - 04/27/20)
+v1.001 part by [spaceglace](https://github.com/spaceglace).
 
-### v1.01
-###### (script 04/29/17)
-Originally created by [spaceglace](https://github.com/spaceglace).
-
-[Download](https://raw.githubusercontent.com/antimYT/Undertale-Autosplitter/master/ut_autosplitter_v1.01.asl)
-
-### v1.05
-###### (script v3 - 04/27/20)
-
-Tested on neutral/genocide ending.
-
-[Download](https://raw.githubusercontent.com/antimYT/Undertale-Autosplitter/master/ut_autosplitter_v1.05_r3.asl)
-
-### v1.08 
-###### (script v4 - 04/25/20)
-
-Not tested at all but should work.
-
-[Download](https://raw.githubusercontent.com/antimYT/Undertale-Autosplitter/master/ut_autosplitter_v1.08_r4.asl)
+[Download](https://raw.githubusercontent.com/antimYT/Undertale-Autosplitter/master/ut_autosplitter_common_r6.asl)
 
 ## How to install
 + Open LiveSplit
@@ -33,3 +17,5 @@ Not tested at all but should work.
 You can do it [here](https://github.com/antimYT/Undertale-Autosplitter/issues?q=). Attach your logs if you can.
 
 You can find your Log files here: `*livesplit directory*/uaslog/`
+
+[old README.md - 04/29/20](https://github.com/antimYT/Undertale-Autosplitter/blob/master/README_old.md)

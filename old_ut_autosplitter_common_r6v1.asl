@@ -71,7 +71,6 @@ startup
 	settings.Add("hotlands", true, "Hotlands/Core");
 	settings.Add("castle", true, "Asgore's Castle");
 	settings.Add("truepac", true, "True Pacifist");
-	settings.Add("genokills", true, "Genocide: Kills");
 
 	settings.Add("r-singlerock", false, "Exit Single Rock Room", "ruins");
 	settings.Add("b-endnapsta", false, "End Napstablook Fight", "ruins");
@@ -122,7 +121,6 @@ startup
 	settings.Add("f-longelevator", false, "Exit Long Elevator", "castle");
 	settings.Add("b-startsans", false, "Start Sans Fight", "castle");
 	settings.Add("b-endsans", false, "Finish Sans Fight", "castle");
-	settings.Add("b-enterbarrier", false, "Enter The Barrier Room", "castle");
 	settings.Add("b-startasgore", false, "Start Neutral Asgore Fight", "castle");
 	settings.Add("b-endasgore", false, "End Asgore Fight", "castle");
 	settings.Add("p-neutralend", false, "Neutral Ending", "castle");
@@ -134,11 +132,6 @@ startup
 	settings.Add("b-onewingangel", false, "Asriel Dreemur Final Form", "truepac");
 	settings.Add("b-endasriel", false, "End Asriel Dreemur Fight", "truepac");
 	settings.Add("f-tpeend", false, "True Pacifist Ending", "truepac");
-	
-	settings.Add("g-ruins20", false, "Ruins - 20 kills", "genokills");
-	settings.Add("g-snowf16", false, "Snowdin Forest - 16 kills", "genokills");
-	settings.Add("g-water18", false, "Waterfall - 18 kills", "genokills");
-	settings.Add("g-snowdinf40", false, "Hotlands - 40 kills", "genokills");
 
 
 	// object array structure
@@ -151,7 +144,6 @@ startup
 	vars.special = 6; 		// int 		required special logic function, -1 if none
 
 	vars.goals = new Dictionary<string, object[]>() {
-		//<name>							<0>		<1>		<2>		<3>		<4>		<5>		<6>
 		// Ruins
 		{"r-singlerock",	new object[] {false,	30,		-1,		15,		16,		-1,		-1	}},
 		{"b-endnapsta",		new object[] {false,	30,		-1,		306,	19,		20,		-1	}},
@@ -206,7 +198,6 @@ startup
 		{"f-longelevator",	new object[] {false,	-1,		-1,		215,	216,	-1,		9	}},
 		{"b-startsans",		new object[] {false,	-1,		-1,		231,	306,	95,		-1	}},
 		{"b-endsans",		new object[] {false,	-1,		-1,		306,	231,	95,		-1	}},
-		{"b-enterbarrier",	new object[] {false,	-1,		-1,		236,	237,	-1,		-1	}},
 		{"b-startasgore",	new object[] {false,	-1,		-1,		237,	306,	100,	-1	}},
 		{"b-endasgore",		new object[] {false,	-1,		-1,		306,	322,	100,	-1	}},
 		{"p-neutralend",	new object[] {false,	-1,		30,		-1,		238,	-1,		-1	}},
@@ -218,13 +209,7 @@ startup
 		{"b-startasriel",	new object[] {false,	-1,		-1,		-1,		306,	255,	-1	}},
 		{"b-onewingangel",	new object[] {false,	-1,		-1,		-1,		306,	256,	-1	}},
 		{"b-endasriel",		new object[] {false,	-1,		-1,		306,	331,	256,	-1	}},
-		{"f-tpeend",		new object[] {false,	-1,		-1,		-1,		241,	-1,		13	}},
-		
-		// Genocide kills
-		{"g-ruins20",		new object[] {false,	-1,		-1,		-1,		-1,		-1,		20	}},
-		{"g-snowf16",		new object[] {false,	-1,		-1,		-1,		-1,		-1,		21	}},
-		{"g-water18",		new object[] {false,	-1,		-1,		-1,		-1,		-1,		22	}},
-		{"g-snowdinf40",	new object[] {false,	-1,		-1,		-1,		-1,		-1,		23	}}
+		{"f-tpeend",		new object[] {false,	-1,		-1,		-1,		241,	-1,		13	}}
 	};
 }
 
@@ -281,7 +266,7 @@ init
 
 	current.kills = 0;
 	vars.log("autosplitter by spaceglace(1.01 and earlier) and antimyt (1.05/1.08)");
-	vars.log("INIT - " + version + " - r6v2 - Modulesize:" + vars.moduleSize);
+	vars.log("INIT - " + version + " - r6 - Modulesize:" + vars.moduleSize);
 }
 
 update
@@ -418,21 +403,6 @@ split
 					case 11:	// f-genoend
 						pass = (old.chara == 8) && (current.chara > 8);
 						break;
-						
-					//genocide cases
-					case 20:	// g-ruins20
-						pass = (current.kpointer == 202) && (old.kills_ruins < 20) && (current.kills_ruins >= 20);
-						break;
-					case 21:	// g-snowf16
-						pass = (current.kpointer == 203) && (old.kills_tundra < 16) && (current.kills_tundra >= 16);
-						break;
-					case 22:	// g-water18
-						pass = (current.kpointer == 204) && (old.kills_waterfall < 18) && (current.kills_waterfall >= 18);
-						break;
-					case 23:	// g-snowdinf40
-						pass = (current.kpointer == 205) && (old.kills_hotland < 40) && (current.kills_hotland >= 40);
-						break;
-						
 				}
 
 				if (!pass)

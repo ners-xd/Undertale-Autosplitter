@@ -6,12 +6,17 @@ v1.001 part by [spaceglace](https://github.com/spaceglace).
 [Download](https://raw.githubusercontent.com/antimYT/Undertale-Autosplitter/master/ut_autosplitter_common_r6.asl)
 
 ## How to install
-+ Open LiveSplit
+### 1. Using Splits editor
++ Menu → Edit Splits
++ Game Name should be "Undertale"
++ Press "Activate"
++ In the "Settings" window select the needed paths (don't forget to add splits for them).
+### 2. Using Layout editor
 + Menu → Edit Layout
 + (+) sign → Control → Scriptable Auto Splitter
 + Double click on "Scriptable Auto Splitter"
 + Browse → Script path
-+ In the "advanced" window select the needed paths (don't forget to add them to timer).
++ In the "advanced" window select the needed paths (don't forget to add splits for them).
 
 ## Submit bugs
 You can do it [here](https://github.com/antimYT/Undertale-Autosplitter/issues?q=). Attach your logs if you can.

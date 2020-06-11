@@ -1,6 +1,6 @@
 # Undertale Autosplitter (for 1.001/1.05/1.08)
 ## Download
-###### (script v6 - 04/27/20)
+###### (script v6r3 - 06/11/20)
 v1.001 part by [spaceglace](https://github.com/spaceglace).
 
 [Download](https://raw.githubusercontent.com/antimYT/Undertale-Autosplitter/master/ut_autosplitter_common_r6.asl)

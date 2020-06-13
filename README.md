@@ -1,12 +1,12 @@
 # Undertale Autosplitter (for 1.001/1.05/1.08)
 ## Download
-###### (script v6r3 - 06/11/20)
-v1.001 part by [spaceglace](https://github.com/spaceglace).
-
+### - Main Script [v6r3 - 06/11/20]
 [Download](https://raw.githubusercontent.com/antimYT/Undertale-Autosplitter/master/ut_autosplitter_common_r6.asl)
+### - Category Extensions Script [r1 - 06/13/20]
+[Download](https://raw.githubusercontent.com/antimYT/Undertale-Autosplitter/master/ut_autosplitter_common_cat_r1.asl)
 
 ## How to install
-### 1. Using Splits editor
+### 1. Using Splits editor (only for Main Script)
 + Menu → Edit Splits
 + Game Name should be "Undertale"
 + Press "Activate"

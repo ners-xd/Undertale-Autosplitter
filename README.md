@@ -19,6 +19,11 @@
 + In the "advanced" window select the needed paths (don't forget to add splits for them).
 
 ## How to update (splits editor / official)
+### 1. Automatically
++ Deactivate autosplitter
++ Restart LiveSplit
++ Activate autosplitter
+### 2. Manually (if the 1st method doesn't work for you)
 + Close LiveSplit
 + Go to `*livesplit directory*/Components/` and delete `ut_autosplitter_common_r6.asl` file
 + Open LiveSplit

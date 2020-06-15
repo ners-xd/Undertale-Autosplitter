@@ -29,3 +29,5 @@ You can do it [here](https://github.com/antimYT/Undertale-Autosplitter/issues?q=
 You can find your Log files here: `*livesplit directory*/uaslog/`
 
 [old README.md - 04/29/20](https://github.com/antimYT/Undertale-Autosplitter/blob/master/README_old.md)
+
+[old versions](https://github.com/antimYT/Undertale-Autosplitter/tree/old-versions)

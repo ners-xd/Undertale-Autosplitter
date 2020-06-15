@@ -81,7 +81,6 @@ startup
 	settings.Add("r-torielhouse", false, "Enter Toriel's House", "ruins");
 	settings.Add("b-starttoriel", false, "Start Toriel Fight", "ruins");
 	settings.Add("b-endtoriel", false, "End Toriel Fight", "ruins");
-	settings.Add("r-exittorielhouse", false, "Exit Toriel's House", "ruins");
 	settings.Add("p-exitruins", false, "Exit the Ruins", "ruins");
 
 	settings.Add("b-enddoggo", false, "End Doggo Fight", "tundra");
@@ -162,7 +161,6 @@ startup
 		{"r-torielhouse",	new object[] {false,	30,		-1,		31,		32,		-1,		-1	}},
 		{"b-starttoriel",	new object[] {false,	30,		-1,		41,		306,	22,		-1	}},
 		{"b-endtoriel",		new object[] {false,	30,		-1,		306,	41,		22,		-1	}},
-		{"r-exittorielhouse",new object[]{false,	30,		-1,		41,		42,		-1,		-1	}},
 		{"p-exitruins",		new object[] {false,	30,		30,		-1,		43,		-1,		-1	}},
 
 		// Tundra
@@ -205,7 +203,7 @@ startup
 		{"r-operamenu",		new object[] {false,	199,	176,	138,	137,	-1,		-1	}},
 		{"b-startmtt",		new object[] {false,	199,	-1,		211,	306,	80,		-1	}},
 		{"b-endmtt",		new object[] {false,	199,	-1,		306,	211,	-1,		8	}},
-		{"b-endneo",		new object[] {false,	199,	-1,		306,	211,	94,		-1	}},
+		{"b-endneo",		new object[] {false,	199,	-1,		211,	212,	-1,		-1	}},
 
 		// Castle
 		{"f-longelevator",	new object[] {false,	-1,		-1,		215,	216,	-1,		9	}},
@@ -237,7 +235,6 @@ init
 {
 	vars.moduleSize = modules.First().ModuleMemorySize;
 	vars.justStarted = true;
-	vars.isDebugMode = false;
 
 	vars.log = (Func<string, bool>)((message) =>
 	{
@@ -256,53 +253,38 @@ init
 		return true;
 	});
 	
-	string hash;
 	if(vars.moduleSize == 6213632)
-		version = "v1.001";
-	using (System.Security.Cryptography.MD5 md5Hash = System.Security.Cryptography.MD5.Create())
 	{
-		string gamepath = Path.GetDirectoryName(modules.First().FileName);
-		string dataspath = Path.Combine(gamepath, "data.win");
-		FileStream stream = File.Open(dataspath, FileMode.Open, FileAccess.Read, FileShare.Read);
-		byte[] data = md5Hash.ComputeHash(stream);
-		System.Text.StringBuilder sb = new System.Text.StringBuilder();
-		foreach(byte d in data)
-			sb.Append(d.ToString("x2"));
-		hash = sb.ToString();
-		string ver = string.Empty;
-		switch(hash){
-			case "856219e69dd39e76deca0586a7f44307":
-				version = "v1.05";
-				break;
-			case "5903fc5cb042a728d4ad8ee9e949c6eb":
-				version = "v1.08";
-				break;
-			case "c35cb1ad60f7806e16f9ccef707ad0e3": //v1.001 debug linux
-			case "299856495a3d07e87ba88ca692a842a8": //v1.001 debug win
-				vars.isDebugMode = true;
-				break;
-			case "6477a81360d9c4ca7943ccd2dd4f32f2":
-				vars.isDebugMode = true;
-				version = "v1.05";
-				break;
-			case "776ae6ca1cfc67e41eb3b68bb13b0bdd":
-				vars.isDebugMode = true;
-				version = "v1.08";
-				break;
+		version = "v1.001";
+	}
+	else
+	{
+		//1.05/1.08 have the same moduleSize
+		using (System.Security.Cryptography.MD5 md5Hash = System.Security.Cryptography.MD5.Create())
+		{
+			string gamepath = Path.GetDirectoryName(modules.First().FileName);
+			string dataspath = Path.Combine(gamepath, "data.win");
+			FileStream stream = File.Open(dataspath, FileMode.Open, FileAccess.Read, FileShare.Read);
+			byte[] data = md5Hash.ComputeHash(stream);
+			System.Text.StringBuilder sb = new System.Text.StringBuilder();
+			foreach(byte d in data)
+				sb.Append(d.ToString("x2"));
+			string hash = sb.ToString();
+			string ver = string.Empty;
+			switch(hash){
+				case "856219e69dd39e76deca0586a7f44307":
+					version = "v1.05";
+					break;
+				case "5903fc5cb042a728d4ad8ee9e949c6eb":
+					version = "v1.08";
+					break;
 			}
+		}
 	}
 
 	current.kills = 0;
 	vars.log("autosplitter by spaceglace(1.01 and earlier) and antimyt (1.05/1.08)");
-	vars.log("INIT - " + version + (vars.isDebugMode ? " - Debug mode" : "") + " - r6v4");
-	if(vars.isDebugMode)
-		Console.Beep(2000, 100);
-	if(string.IsNullOrEmpty(version)){
-		Console.Beep(1000, 500);
-		Console.Beep(37, 200);
-		Console.Beep(1000, 500);
-		vars.log("Version is not found! - Modulesize:" + vars.moduleSize + " - Hash:" + hash);
-	}
+	vars.log("INIT - " + version + " - r6v3 - Modulesize:" + vars.moduleSize);
 }
 
 update

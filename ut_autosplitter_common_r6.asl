@@ -149,7 +149,7 @@ startup
     settings.Add("castle", true, "New Home");
     settings.Add("truepac", true, "True Pacifist");
     settings.Add("genokills", true, "Genocide");
-    settings.Add("misc", false, "Text Display (updates on room changes)");
+    settings.Add("misc", true, "Text Display (updates on room changes)");
 
     settings.Add("r-singlerock", false, "Exit Single Rock Room", "ruins");
     settings.Add("b-endnapsta", false, "End Napstablook Fight", "ruins");

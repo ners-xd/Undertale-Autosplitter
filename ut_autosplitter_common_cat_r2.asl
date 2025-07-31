@@ -331,7 +331,7 @@ start
         return true;
     }
     
-    if (settings["extra-load"] && old.room == 3 && current.room > 3 && old.start == 3)
+    if(settings["extra-load"] && old.room == 3 && current.room > 3 && old.start == 3)
         return true;
 }
 
@@ -349,7 +349,7 @@ reset
         return true;
     }
     
-    if (settings["extra-load"] && old.room == 3 && current.room > 3 && old.start == 3)
+    if(settings["extra-load"] && old.room == 3 && current.room > 3 && old.start == 3)
         return true;
 }
 
@@ -357,7 +357,7 @@ split
 {
     if(version == "DEMO")
     {
-        if (old.room != current.room || old.plot != current.plot)
+        if(old.room != current.room || old.plot != current.plot)
         {
             vars.log("EVENT game r{" + old.room + "," + current.room + "} " +
                             "p{" + old.plot + "," + current.plot + "} ");
@@ -365,7 +365,7 @@ split
     } 
     else 
     {
-        if (old.room != current.room || old.money != current.money || old.plot != current.plot || old.battle != current.battle)
+        if(old.room != current.room || old.money != current.money || old.plot != current.plot || old.battle != current.battle)
         {
             vars.log("EVENT game r{" + old.room + "," + current.room + "} " + 
                             "m{" + old.money + "," + current.money + "} " + 
@@ -375,33 +375,33 @@ split
         }
     }
 
-    foreach (string goal in vars.goals.Keys)
+    foreach(string goal in vars.goals.Keys)
     {
         // is this an enabled split that is armed?
-        if ((settings[goal]) && (!vars.goals[goal][vars.visited]))
+        if(settings[goal] && !vars.goals[goal][vars.visited])
         {
             // is there a current room requirement?
-            if ((vars.goals[goal][vars.curroom] != -1) && (current.room != vars.goals[goal][vars.curroom]))
+            if(vars.goals[goal][vars.curroom] != -1 && current.room != vars.goals[goal][vars.curroom])
                 continue;
 
             // is there an old room requirement?
-            if ((vars.goals[goal][vars.oldroom] != -1) && (old.room != vars.goals[goal][vars.oldroom]))
+            if(vars.goals[goal][vars.oldroom] != -1 && old.room != vars.goals[goal][vars.oldroom])
                 continue;
 
             // is there an exact plot requirement?
-            if ((vars.goals[goal][vars.reqplot] != -1) && (current.plot != vars.goals[goal][vars.reqplot]))
+            if(vars.goals[goal][vars.reqplot] != -1 && current.plot != vars.goals[goal][vars.reqplot])
                 continue;
 
             // is there a battlegroup requirement?
-            if ((vars.goals[goal][vars.opposer] != -1) && (current.battle != vars.goals[goal][vars.opposer]))
+            if(vars.goals[goal][vars.opposer] != -1 && current.battle != vars.goals[goal][vars.opposer])
                 continue;
 
             // is there a maximum plot requirement?
-            if ((vars.goals[goal][vars.maxplot] != -1) && (current.plot > vars.goals[goal][vars.maxplot]))
+            if(vars.goals[goal][vars.maxplot] != -1 && current.plot > vars.goals[goal][vars.maxplot])
                 continue;
 
             // is there a special flag requirement?
-            if (vars.goals[goal][vars.special] != -1)
+            if(vars.goals[goal][vars.special] != -1)
             {
                 bool pass = false;
 
@@ -436,7 +436,7 @@ split
                         
                 }
 
-                if (!pass)
+                if(!pass)
                     continue;
             }
 

@@ -42,6 +42,24 @@ state("Undertale", "v1.001 Linux")
 
 	double status_undyne : "Undertale.exe", 0x0039B1E8, 0x4, 0x40, 0x4, 0x4, 0x1850;
 }
+state("Undertale", "v1.001 Linux")
+{
+	uint room : "Undertale.exe", 0x59D310;
+	double money : "Undertale.exe", 0x39B1E8, 0x4, 0xE0;
+	double plot : "Undertale.exe", 0x39B1E8, 0x4, 0x100;
+	double battle : "Undertale.exe", 0x39B1E8, 0x4, 0x440;
+
+	double start : "Undertale.exe", 0x59D34C, 0x84, 0x140, 0x140, 0x4, 0x520;
+	double papyrus : "Undertale.exe", 0x39B1E8, 0x4, 0x40, 0x4, 0x4, 0x430;
+	double chara : "Undertale.exe", 0x59D34C, 0x80, 0x4, 0x200;
+	float handhold : "Undertale.exe", 0x59F510, 0xA0, 0x7C;
+
+	double kpointer : "Undertale.exe", 0x39B1E8, 0x4, 0x40, 0x4, 0x4, 0xC80;
+	double kills_ruins : "Undertale.exe", 0x39B1E8, 0x4, 0x40, 0x4, 0x4, 0xCA0;
+	double kills_tundra : "Undertale.exe", 0x39B1E8, 0x4, 0x40, 0x4, 0x4, 0xCB0;
+	double kills_waterfall : "Undertale.exe", 0x39B1E8, 0x4, 0x40, 0x4, 0x4, 0xCC0;
+	double kills_hotland : "Undertale.exe", 0x39B1E8, 0x4, 0x40, 0x4, 0x4, 0xCD0;
+}
 state("Undertale", "v1.05")
 {
 	uint room : "Undertale.exe", 0x618EA0;
@@ -385,6 +403,7 @@ init
 				version ="v1.08 GOG";
 				break;
 			}
+
 		if (vars.moduleSize == 6221824 && hash == "88ae093aa1ae0c90da0d3ff1e15aa724")
 			version = "v1.001 Linux";
 	}

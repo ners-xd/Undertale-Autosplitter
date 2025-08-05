@@ -314,11 +314,11 @@ update
 
 start
 {
-    if(old.start != current.start || old.room != current.room)
+    if((current.room == 3 && old.start != current.start) || old.room != current.room)
         vars.log("EVENT room r{" + old.room + "," + current.room + "} s{" + old.start + "," + current.start + "}");
 
     // With a new file, this gets set when player hits "Yes"
-    if(old.start == 2 && current.start > 2)
+    if(current.room == 3 && old.start == 2 && current.start > 2)
     {
         vars.log("EVENT start (new file)");
         return true;
@@ -337,7 +337,7 @@ start
 
 reset
 {
-    if(old.start == 2 && current.start > 2)
+    if(current.room == 3 && old.start == 2 && current.start > 2)
     {
         vars.log("EVENT reset (new file)");
         return true;

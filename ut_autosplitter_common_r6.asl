@@ -245,8 +245,6 @@ startup
     settings.Add("displaywaterfallkillcount", false, "Display Waterfall Kill Counter", "misc");
     settings.Add("displayhotlandkillcount", false, "Display Hotland/CORE Kill Counter", "misc");
     settings.Add("displayareakillcount", false, "Display Current Area Kill Counter", "misc");
-    settings.Add("displaycurroomnum", false, "Display Current Room Number", "misc");
-    settings.Add("displayoldroomnum", false, "Display Old Room Number", "misc");
 
     // Object array structure
     vars.visited = 0; // (bool)   have we triggered this split already?
@@ -593,12 +591,6 @@ update
                     break;
             }
         }
-
-        if(settings["displaycurroomnum"])
-            vars.setText("Room", current.room);
-
-        if(settings["displayoldroomnum"])
-            vars.setText("Old Room", old.room);
     }
 }
 
